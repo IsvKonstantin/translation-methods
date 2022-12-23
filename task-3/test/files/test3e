@@ -1,0 +1,6 @@
+private final class FirstTest extends Something.nothing implements Anything, Whatever {
+    private final String testFieldOne;
+    char[] testFieldTwo;
+    Very.Complex.Type[] testFieldThree = new Very.Complex.Type[15];
+    int testFieldFour = someFunction(5, 7, 8);
+}

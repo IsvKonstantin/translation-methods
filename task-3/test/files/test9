@@ -1,0 +1,34 @@
+class Test   {
+    private String a = "";
+    final String b = "b";
+    int x = (1 * 1);
+
+    Test(Super.Complex.Stuff stuff) {
+        super(stuff);
+        system.out.println("passed? :)");
+    }
+
+    public Test() {
+    }
+
+    void doNothing() {
+        if (false) {
+            doSomething("nothing");
+            int y = 1;
+        } else {
+            int z = 0 / 0;
+        }
+
+        for (int i = 0; i <= 4; i += 1) {
+            j += 10;
+        }
+
+        while (true) {
+            parse(text);
+        }
+
+        do {
+            int x = 0;
+        } while (true);
+    }
+}

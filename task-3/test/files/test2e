@@ -1,0 +1,2 @@
+private final class FirstTest extends Something implements Anything, Whatever {
+}

@@ -1,0 +1,28 @@
+class Test {
+    private String a = "";
+    final String b = "b";
+    int x = (1 * 1);
+
+    Test(Super.Complex.Stuff stuff) {
+        super(stuff);
+        system.out.println("passed? :)");
+    }
+
+    public Test() {
+    }
+
+    private Test(int c) {
+        super(false);
+    }
+
+    void printSomething() {
+        system.out.println("printSomething");
+    }
+
+    void doNothing() {
+    }
+
+    int addTwo(int x) {
+        return x + 2;
+    }
+}

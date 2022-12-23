@@ -1,0 +1,29 @@
+grammar Calculator;
+
+common [int val;]
+
+addSub: mulDiv addSubPrime(mulDiv.val) { res.val = addSubPrime.val; };
+addSubPrime[int acc]: ADD mulDiv addSubPrime(acc + mulDiv.val) { res.val = addSubPrime.val; }
+                | SUB mulDiv addSubPrime(acc - mulDiv.val) { res.val = addSubPrime.val; }
+                | EPS  { res.val = acc; }
+                ;
+
+mulDiv: expr mulDivPrime(expr.val) { res.val = mulDivPrime.val; };
+mulDivPrime[int acc]: MUL expr mulDivPrime(acc * expr.val) { res.val = mulDivPrime.val; }
+                | DIV expr mulDivPrime(acc / expr.val) { res.val = mulDivPrime.val; }
+                | EPS  { res.val = acc; }
+                ;
+
+expr: NUM { res.val = Integer.parseInt(NUM.getName()); }
+     | L_PARAN addSub R_PARAN { res.val = addSub.val; }
+     ;
+
+ADD: "\+";
+SUB: "-";
+MUL: "\*";
+DIV: "/";
+L_PARAN: "\(";
+R_PARAN: "\)";
+NUM: "\d+";
+
+SKIP: "[ \n\t\r]+";

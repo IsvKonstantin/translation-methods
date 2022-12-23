@@ -1,0 +1,12 @@
+class Test {
+
+
+
+
+    private Test(int c) {super(false);
+                    int d += c;
+    }
+
+
+
+}

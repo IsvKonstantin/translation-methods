@@ -1,0 +1,47 @@
+digraph {
+label ="a and b"
+labelloc = t
+fontsize = 50
+fontcolor = black
+v0 [label="e", color=black]
+v0 -> v1
+v1 [label="x", color=black]
+v1 -> v2
+v2 [label="c", color=black]
+v2 -> v3
+v3 [label="n", color=black]
+v3 -> v4
+v4 [label="u", color=black]
+v4 -> v5
+v5 [label="a", color=blue]
+v4 -> v6
+v6 [label="uprime", color=black]
+v6 -> v7
+v7 [label="ε", color=coral3]
+v2 -> v8
+v8 [label="cprime", color=black]
+v8 -> v9
+v9 [label="and", color=blue]
+v8 -> v10
+v10 [label="n", color=black]
+v10 -> v11
+v11 [label="u", color=black]
+v11 -> v12
+v12 [label="b", color=blue]
+v11 -> v13
+v13 [label="uprime", color=black]
+v13 -> v14
+v14 [label="ε", color=coral3]
+v8 -> v15
+v15 [label="cprime", color=black]
+v15 -> v16
+v16 [label="ε", color=coral3]
+v1 -> v17
+v17 [label="xprime", color=black]
+v17 -> v18
+v18 [label="ε", color=coral3]
+v0 -> v19
+v19 [label="eprime", color=black]
+v19 -> v20
+v20 [label="ε", color=coral3]
+}

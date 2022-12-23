@@ -1,0 +1,19 @@
+class Test {
+
+    private String a = "";
+
+    final String b = "b";
+
+
+    public Test() {
+    }
+
+
+                int x = (1        *1);
+
+
+    private Test(int c) {super(false);}
+
+
+
+}

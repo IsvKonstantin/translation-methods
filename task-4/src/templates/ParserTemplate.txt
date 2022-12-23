@@ -1,0 +1,60 @@
+package ${name};
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
+@SuppressWarnings({"DuplicateBranchesInSwitch", "EnhancedSwitchMigration"})
+public class ${name}Parser {
+    private ${name}Lexer lexer;
+
+    public Node parse(String text) throws ParseException {
+        this.lexer = new ${name}Lexer(text);
+        lexer.nextToken();
+        Node answer = ${startRule}();
+
+        if (lexer.getTokenRule() != Rule.END) {
+            throw new ParseException("Incorrect token: " + lexer.getTokenText(), lexer.getIndex());
+        }
+
+        return answer;
+    }
+
+    public static class Node {
+${vars}
+        private String name;
+        private Rule rule;
+        private List<Node> children = new ArrayList<>();
+
+        public Node(String name, Rule rule) {
+            this.name = name;
+            this.rule = rule;
+        }
+
+        public boolean isTerminal() {
+            return !Character.isLowerCase(rule.toString().charAt(0));
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public Rule getRule() {
+            return rule;
+        }
+
+        public List<Node> getChildren() {
+            return children;
+        }
+    }
+
+    private void checkToken(Rule expected) throws ParseException {
+        Rule rule = lexer.getTokenRule();
+
+        if (expected != rule) {
+            throw new ParseException("Incorrect token: " + lexer.getTokenText(), lexer.getIndex());
+        }
+
+        lexer.nextToken();
+    }
+

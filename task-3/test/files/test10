@@ -1,0 +1,22 @@
+class Test   extends   Another  implements AB, AZ        {
+    void doNothing() {
+        if (false) {
+            doSomething("nothing");
+            int y = 1;
+        } else {
+            int z = 0 / 0;
+        }
+
+        for (int i = 0; i <= 4; i += 1) {
+            j += 10;
+        }
+
+        while (true) {
+            parse(text);
+        }
+
+        do {
+            int x = 0;
+        } while (true);
+    }
+}

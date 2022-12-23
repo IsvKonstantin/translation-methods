@@ -1,0 +1,38 @@
+grammar Logical;
+
+common [int val;]
+
+e: c eprime;
+eprime: OR c eprime
+      | XOR c eprime
+      | EPS
+      ;
+
+c: n cprime;
+cprime: AND n cprime
+      | EPS
+      ;
+
+n: NOT u
+ | u
+ ;
+
+u: L_PARAN e R_PARAN uprime
+ | VAR uprime
+ ;
+
+uprime: IN VAR uprime
+      | EPS
+      ;
+
+OR: "or";
+XOR: "xor";
+AND: "and";
+NOT: "not";
+IN: "in";
+
+L_PARAN: "\(";
+R_PARAN: "\)";
+VAR: "[a-z]";
+
+SKIP: "[ \n\t\r]+";

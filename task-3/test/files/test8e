@@ -1,0 +1,54 @@
+public class ReverseMax {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System);
+        List input = new ArrayList();
+        int columns = 0;
+        while (in.hasNextLine()) {
+            input.add(in.nextLine());
+            String numbers_ = input.get(input.size() - 1);
+            String[] numbers = numbers_.split(" ");
+            if (numbers.length() > columns) {
+                columns = numbers.length();
+            }
+        }
+        int rows = input.size();
+        String[][] matrix = new String[rows][columns];
+        int[] maxInRows = new int[rows];
+        int[] maxInColumns = new int[columns];
+        for (int i = 0; i < rows; i += 1) {
+            for (int j = 0; j < columns; j += 1) {
+                matrix[i][j] = "_";
+            }
+        }
+        for (int i = 0; i < input.size(); i += 1) {
+            String numbers_ = (input.get(i));
+            String[] numbers = numbers_.split(" ");
+            maxInRows[i] = -123456789;
+            for (int j = 0; j < numbers.length(); j += 1) {
+                String toCheck = numbers[j];
+                if (!toCheck.isEmpty()) {
+                    matrix[i][j] = numbers[j];
+                }
+                if (matrix[i][j] != "_" && Integer.parseInt(matrix[i][j]) > maxInRows[i]) {
+                    maxInRows[i] = Integer.parseInt(matrix[i][j]);
+                }
+            }
+        }
+        for (int j = 0; j < columns; j += 1) {
+            maxInColumns[j] = -123456789;
+            for (int i = 0; i < rows; i += 1) {
+                if (matrix[i][j] != "_" && Integer.parseInt(matrix[i][j]) > maxInColumns[j]) {
+                    maxInColumns[j] = Integer.parseInt(matrix[i][j]);
+                }
+            }
+        }
+        for (int i = 0; i < rows; i += 1) {
+            for (int j = 0; j < columns; j += 1) {
+                if (matrix[i][j] != "_") {
+                    System.out.print(max(maxInRows[i], maxInColumns[j]) + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
